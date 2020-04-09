@@ -99,7 +99,7 @@ class ControladorVentas{
 
 			$item1b = "ultima_compra";
 
-			date_default_timezone_set('America/Bogota');
+			date_default_timezone_set('America/Guatemala');
 
 			$fecha = date('Y-m-d');
 			$hora = date('H:i:s');
@@ -150,7 +150,7 @@ class ControladorVentas{
 
 				$printer -> feed(1); //Alimentamos el papel 1 vez*/
 
-				$printer -> text("Inventory System"."\n");//Nombre de la empresa
+				$printer -> text("Optica 20/20"."\n");//Nombre de la empresa
 
 				$printer -> text("NIT: 71.759.963-9"."\n");//Nit de la empresa
 
@@ -357,7 +357,7 @@ class ControladorVentas{
 
 				$item1b_2 = "ultima_compra";
 
-				date_default_timezone_set('America/Bogota');
+				date_default_timezone_set('America/Guatemala');
 
 				$fecha = date('Y-m-d');
 				$hora = date('H:i:s');
