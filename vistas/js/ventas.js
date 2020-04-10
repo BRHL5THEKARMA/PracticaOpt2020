@@ -147,7 +147,9 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	        // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-	        listarProductos()
+			listarProductos()
+			
+			
 
 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
@@ -241,7 +243,10 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
         // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-        listarProductos()
+		listarProductos()
+		
+		
+		
 
 	}
 
@@ -342,7 +347,10 @@ $(".btnAgregarProducto").click(function(){
 
     		// AGREGAR IMPUESTO
 	        
-	        agregarImpuesto()
+			agregarImpuesto()
+			
+			
+			
 
 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
@@ -452,7 +460,9 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
     // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-    listarProductos()
+	listarProductos()
+	
+	
 
 })
 
@@ -489,6 +499,24 @@ function sumarTotalPrecios(){
 }
 
 /*=============================================
+FUNCIÓN AGREGAR ESTADO DE VENTA 
+=============================================*/
+
+/*function agregarEstado(){
+
+	
+	
+	var checkBox = document.getElementById("nuevoEstadoVenta");
+	
+	if (checkBox.checked == true){
+		$("#nuevoEstadoVenta").val(2);
+	} else {
+		$("#nuevoEstadoVenta").val(1);
+	}
+  }
+*/
+
+/*=============================================
 FUNCIÓN AGREGAR IMPUESTO
 =============================================*/
 
@@ -497,9 +525,9 @@ function agregarImpuesto(){
 	var impuesto = $("#nuevoImpuestoVenta").val();
 	var precioTotal = $("#nuevoTotalVenta").attr("total");
 
-	var precioImpuesto = Number(precioTotal * impuesto/100);
+	var precioImpuesto = Number(impuesto);
 
-	var totalConImpuesto = Number(precioImpuesto) + Number(precioTotal);
+	var totalConImpuesto = Number(precioTotal) - Number(precioImpuesto);
 	
 	$("#nuevoTotalVenta").val(totalConImpuesto);
 
@@ -508,7 +536,6 @@ function agregarImpuesto(){
 	$("#nuevoPrecioImpuesto").val(precioImpuesto);
 
 	$("#nuevoPrecioNeto").val(precioTotal);
-
 }
 
 /*=============================================
@@ -611,7 +638,7 @@ $(".formularioVenta").on("change", "input#nuevoValorEfectivo", function(){
 
 	var efectivo = $(this).val();
 
-	var cambio =  Number(efectivo) - Number($('#nuevoTotalVenta').val());
+	var cambio =  Number($('#nuevoPrecioNeto').val()) - Number(efectivo);
 
 	var nuevoCambioEfectivo = $(this).parent().parent().parent().children('#capturarCambioEfectivo').children().children('#nuevoCambioEfectivo');
 

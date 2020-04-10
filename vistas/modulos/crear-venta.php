@@ -186,9 +186,21 @@ if($_SESSION["perfil"] == "Especial"){
                     <table class="table">
 
                       <thead>
-
+                          
+                      <div class="form-check">
+                      <label class="form-check-label">
+                     Anticipo?<input type="checkbox" class="form-check-input"  id="nuevoEstadoVenta" name="nuevoEstadoVenta">
+                      </label>
+                    </div>
                         <tr>
-                          <th>Impuesto</th>
+                          <th>Cantidad Anticipo</th>
+                        
+                           
+                          
+                         
+                       
+          
+                          
                           <th>Total</th>      
                         </tr>
 
@@ -202,7 +214,7 @@ if($_SESSION["perfil"] == "Especial"){
                             
                             <div class="input-group">
                            
-                              <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta"  name="nuevoImpuestoVenta" placeholder="0">
 
                                <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
 
