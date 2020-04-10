@@ -22,6 +22,20 @@ class ControladorVentas{
 	}
 
 	/*=============================================
+	MOSTRAR ANTICIPOS
+	=============================================*/
+
+	static public function ctrMostrarAnticipos($item, $valor){
+
+		$tabla = "ventas";
+
+		$respuesta = ModeloVentas::mdlMostrarAnticipos($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
 	CREAR VENTA
 	=============================================*/
 
@@ -994,6 +1008,20 @@ class ControladorVentas{
 	}
 
 	/*=============================================
+	RANGO FECHAS ANTICIPOS
+	=============================================*/	
+
+	static public function ctrRangoFechasAnticipos($fechaInicial, $fechaFinal){
+
+		$tabla = "ventas";
+
+		$respuesta = ModeloVentas::mdlRangoFechasAnticipos($tabla, $fechaInicial, $fechaFinal);
+
+		return $respuesta;
+		
+	}
+
+	/*=============================================
 	DESCARGAR EXCEL
 	=============================================*/
 
@@ -1121,6 +1149,14 @@ class ControladorVentas{
 			$valor = $_GET["xml"];
 
 			$ventas = ModeloVentas::mdlMostrarVentas($tabla, $item, $valor);
+
+			//ANTICIPOS
+
+			$tabla = "ventas";
+			$item = "id_Estado";
+			$valor = $_GET["xml"];
+
+			$ventas = ModeloVentas::mdlMostrarAnticipos($tabla, $item, $valor);
 
 			// PRODUCTOS
 

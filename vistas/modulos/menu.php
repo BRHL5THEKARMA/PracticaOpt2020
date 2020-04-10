@@ -113,6 +113,17 @@
 
 						</a>
 
+					</li>
+					
+					<li>
+
+						<a href="anticipos">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Administar anticipos</span>
+
+						</a>
+
 					</li>';
 
 					if($_SESSION["perfil"] == "Administrador"){
