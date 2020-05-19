@@ -98,8 +98,8 @@ if($xml){
            <th>Cliente</th>
            <th>Vendedor</th>
            <th>Forma de pago</th>
-           <th>Neto</th>
-           <th>Total</th> 
+           <th>Anticipo</th>
+           <th>Restante</th> 
            <th>Fecha</th>
            <th>Acciones</th>
 
@@ -156,7 +156,9 @@ if($xml){
                   <td>'.$value["fecha"].'</td>
 
                   <td>
+                     
 
+                  <button type="button" class="btn btn-primary">FINALIZAR VENTA</button>
                     <div class="btn-group">
 
                       <a class="btn btn-success" href="index.php?ruta=ventas&xml='.$value["codigo"].'">xml</a>
@@ -164,6 +166,8 @@ if($xml){
                       <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'">
 
                         <i class="fa fa-print"></i>
+
+                        
 
                       </button>';
 
@@ -174,14 +178,14 @@ if($xml){
                       <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
                     }
-
+                   
                     echo '</div>  
-
+                     
                   </td>
 
                 </tr>';
             }
-
+          
         ?>
                
         </tbody>
