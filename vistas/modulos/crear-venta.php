@@ -189,7 +189,7 @@ if($_SESSION["perfil"] == "Especial"){
                           
                       <div class="form-check">
                       <label class="form-check-label">
-                      Anticipo?<input type="checkbox" class="form-check-input micasilla"  id="nuevoEstadoVenta" name="nuevoEstadoVenta" onclick="if(this.checked){undisableTxt()}else{disableTxt()}">
+                      Anticipo?<input type="checkbox" class="form-check-input micasilla"  id="nuevoEstadoVenta" name="nuevoEstadoVenta"  onclick="if(this.checked){undisableTxt()}else{disableTxt()}">
                       </label>
                     </div>
                         <tr>

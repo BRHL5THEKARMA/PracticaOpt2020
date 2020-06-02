@@ -799,7 +799,7 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
       }).then(function(result){
         if (result.value) {
           
-			window.location.href = document.referrer+idVenta;
+			window.location = "index.php?ruta=ventas&idVenta="+idVenta;
         }
 
   })
@@ -809,7 +809,7 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
 /*=============================================
 CASILLA ANTICIPO
 =============================================*/
-disableTxt()
+
 function disableTxt() {
 	document.getElementById("nuevoAnticipoVenta").disabled = true;
   }
@@ -823,7 +823,7 @@ FINALIZAR VENTA
 =============================================*/
 $(".tablas").on("click", ".btnActualizar", function(){
 	
-	var idVenta = $(this).attr("idVenta");
+	var idVenta = $(this).attr("idActualizar");
   
 	swal({
 		  title: '¿Está seguro de finalizar la venta',
@@ -833,11 +833,11 @@ $(".tablas").on("click", ".btnActualizar", function(){
 		  confirmButtonColor: '#3085d6',
 		  cancelButtonColor: '#d33',
 		  cancelButtonText: 'Cancelar',
-		  confirmButtonText: 'Si, Finalizarventa'
+		  confirmButtonText: 'Si, Finalizar venta'
 		}).then(function(result){
 		  if (result.value) {
 			
-			  window.location = "index.php?ruta=anticipos&idVenta="+idVenta;
+			  window.location = "index.php?ruta=anticipos&idActualizar="+idVenta;
 		  }
   
 	})
@@ -969,3 +969,4 @@ $(".abrirXML").click(function(){
 })
 
 
+disableTxt()

@@ -134,6 +134,31 @@ class ModeloVentas{
 	}
 
 	/*=============================================
+	FINALIZAR VENTA
+	=============================================*/
+
+	static public function mdlFinalizarVenta($tabla, $nuevoestado, $datos){
+     
+		
+		
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  id_Estado = $nuevoestado, anticipo=0, total = neto WHERE id = $datos");
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+
+	/*=============================================
 	ELIMINAR VENTA
 	=============================================*/
 

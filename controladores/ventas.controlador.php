@@ -783,6 +783,54 @@ class ControladorVentas{
 
 	}
 
+	 /*=============================================
+	FINALIZAR VENTA 
+	=============================================*/
+
+	static public function ctrFinalizarVenta(){
+
+		if(isset($_GET["idActualizar"])){
+			  
+			$tabla = "ventas";
+			$item = "id";
+			
+			$nuevoestado = 1;
+          
+
+			$respuesta = ModeloVentas::mdlFinalizarVenta($tabla,$nuevoestado, $_GET["idActualizar"]);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				localStorage.removeItem("rango");
+
+				swal({
+					  type: "success",
+					  title: "La venta ha sido finalizada correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "ventas";
+
+								}
+							})
+
+				</script>';
+
+			}
+
+		}
+		
+
+		
+	
+
+}
+
+
 
 	/*=============================================
 	RANGO FECHAS

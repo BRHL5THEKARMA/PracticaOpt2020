@@ -29,7 +29,7 @@ if($xml){
     
     <h1>
       
-      Administrar Anticipos 
+      Administrar Anticipos
     
     </h1>
 
@@ -175,9 +175,20 @@ if($xml){
 
                       echo '<button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
                       
-                      <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>
-                      <button class="btn btn-primary btnActualizar" idVenta="'.$value["id"].'">FINALIZAR VENTA</button>';
+                      <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                     
+                      $eliminarVenta = new ControladorVentas();
+                      $eliminarVenta -> ctrEliminarVenta();
+                    }
 
+                    if($_SESSION["perfil"] == "Administrador"){
+
+                      echo '
+                      
+                  
+                      <button class="btn btn-primary btnActualizar" idActualizar="'.$value["id"].'">FINALIZAR VENTA</button>';
+                      $finalizarVenta = new ControladorVentas();
+                      $finalizarVenta -> ctrFinalizarVenta();
                     }
                    
                     echo '</div>  
@@ -193,13 +204,7 @@ if($xml){
 
        </table>
 
-       <?php
-
-$eliminarVenta = new ControladorVentas();
-$eliminarVenta -> ctrEliminarVenta();
-
-      ?>
-       
+  
 
       </div>
 
