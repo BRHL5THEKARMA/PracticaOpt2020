@@ -171,7 +171,7 @@
                             
                             <div class="input-group">
                            
-                              <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="number" class="form-control" min="0" id="nuevoAnticipoVenta" name="nuevoAnticipoVenta" placeholder="0" required>
                               <span class="input-group-addon"><i class="fa fa-percent"></i></span>
                         
                             </div>

@@ -228,7 +228,7 @@
                             
                             <div class="input-group">
                            
-                              <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" value="<?php echo $porcentajeImpuesto; ?>" required>
+                              <input type="number" class="form-control input-lg" min="0" id="nuevoAnticipoVenta" name="nuevoAnticipoVenta" value="<?php echo $porcentajeImpuesto; ?>" required>
 
                                <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" value="<?php echo $venta["impuesto"]; ?>" required>
 

@@ -143,12 +143,12 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	        // AGREGAR IMPUESTO
 
-	        agregarImpuesto()
+	        agregarAnticipo()
 
 	        // AGRUPAR PRODUCTOS EN FORMATO JSON
 
 			listarProductos()
-			
+		
 			
 
 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
@@ -226,7 +226,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
 	if($(".nuevoProducto").children().length == 0){
 
-		$("#nuevoImpuestoVenta").val(0);
+		$("#nuevoAnticipoVenta").val(0);
 		$("#nuevoTotalVenta").val(0);
 		$("#totalVenta").val(0);
 		$("#nuevoTotalVenta").attr("total",0);
@@ -239,7 +239,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
     	// AGREGAR IMPUESTO
 	        
-        agregarImpuesto()
+        agregarAnticipo()
 
         // AGRUPAR PRODUCTOS EN FORMATO JSON
 
@@ -347,7 +347,7 @@ $(".btnAgregarProducto").click(function(){
 
     		// AGREGAR IMPUESTO
 	        
-			agregarImpuesto()
+			agregarAnticipo()
 			
 			
 			
@@ -456,7 +456,7 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
 	// AGREGAR IMPUESTO
 	        
-    agregarImpuesto()
+    agregarAnticipo()
 
     // AGRUPAR PRODUCTOS EN FORMATO JSON
 
@@ -501,28 +501,29 @@ function sumarTotalPrecios(){
 /*=============================================
 FUNCIÓN AGREGAR ESTADO DE VENTA 
 =============================================*/
-
-/*function agregarEstado(){
+/*disableTxt()
+function agregarEstado(){
 
 	
 	
 	var checkBox = document.getElementById("nuevoEstadoVenta");
 	
 	if (checkBox.checked == true){
-		$("#nuevoEstadoVenta").val(2);
+		undisableTxt()
+		console.log("SE DESBLOQUEO");
 	} else {
-		$("#nuevoEstadoVenta").val(1);
+		disableTxt()
 	}
   }
 */
-
+  
 /*=============================================
-FUNCIÓN AGREGAR IMPUESTO
+FUNCIÓN AGREGAR ANTICIPO
 =============================================*/
 
-function agregarImpuesto(){
+function agregarAnticipo(){
 
-	var impuesto = $("#nuevoImpuestoVenta").val();
+	var impuesto = $("#nuevoAnticipoVenta").val();
 	var precioTotal = $("#nuevoTotalVenta").attr("total");
 
 	var precioImpuesto = Number(impuesto);
@@ -539,12 +540,12 @@ function agregarImpuesto(){
 }
 
 /*=============================================
-CUANDO CAMBIA EL IMPUESTO
+CUANDO CAMBIA EL ANTICIPO
 =============================================*/
 
-$("#nuevoImpuestoVenta").change(function(){
+$("#nuevoAnticipoVenta").change(function(){
 
-	agregarImpuesto();
+        agregarAnticipo();
 
 });
 
@@ -719,6 +720,22 @@ $(".tablas").on("click", ".btnEditarVenta", function(){
 
 })
 
+
+
+$(document).ready(function(){  
+  
+    $("#checkbox_comprobar").click(function() {  
+        if($("#nuevoEstadoVenta").is(':checked')) {  
+			alert("Está activado");  
+			Console.log("presionado");
+			
+        } else {  
+			alert("No está activado");  
+			Console.log("presionado");
+        }  
+    });  
+  
+});
 /*=============================================
 FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO EN LA CARPETA
 =============================================*/
@@ -767,7 +784,7 @@ $('.tablaVentas').on( 'draw.dt', function(){
 BORRAR VENTA
 =============================================*/
 $(".tablas").on("click", ".btnEliminarVenta", function(){
-
+	
   var idVenta = $(this).attr("idVenta");
 
   swal({
@@ -782,12 +799,53 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
       }).then(function(result){
         if (result.value) {
           
-            window.location = "index.php?ruta=ventas&idVenta="+idVenta;
+			window.location.href = document.referrer+idVenta;
         }
 
   })
 
 })
+
+/*=============================================
+CASILLA ANTICIPO
+=============================================*/
+disableTxt()
+function disableTxt() {
+	document.getElementById("nuevoAnticipoVenta").disabled = true;
+  }
+  
+  function undisableTxt() {
+	document.getElementById("nuevoAnticipoVenta").disabled = false;
+  }
+
+/*=============================================
+FINALIZAR VENTA
+=============================================*/
+$(".tablas").on("click", ".btnActualizar", function(){
+	
+	var idVenta = $(this).attr("idVenta");
+  
+	swal({
+		  title: '¿Está seguro de finalizar la venta',
+		  text: "¡Si no lo está puede cancelar la accíón!",
+		  type: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: 'Cancelar',
+		  confirmButtonText: 'Si, Finalizarventa'
+		}).then(function(result){
+		  if (result.value) {
+			
+			  window.location = "index.php?ruta=anticipos&idVenta="+idVenta;
+		  }
+  
+	})
+  
+  })
+  
+
+
 
 /*=============================================
 IMPRIMIR FACTURA
