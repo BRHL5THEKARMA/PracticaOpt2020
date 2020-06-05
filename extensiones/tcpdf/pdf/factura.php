@@ -28,7 +28,7 @@ $respuestaVenta = ControladorVentas::ctrMostrarVentas($itemVenta, $valorVenta);
 $fecha = substr($respuestaVenta["fecha"],0,-8);
 $productos = json_decode($respuestaVenta["productos"], true);
 $neto = number_format($respuestaVenta["neto"],2);
-$impuesto = number_format($respuestaVenta["impuesto"],2);
+$anticipo = number_format($respuestaVenta["anticipo"],2);
 $total = number_format($respuestaVenta["total"],2);
 
 //TRAEMOS LA INFORMACIÓN DEL CLIENTE
@@ -71,16 +71,16 @@ $bloque1 = <<<EOF
 				Fecha: $fecha
 
 				<br><br>
-				Inventory System
+				Optica 20/20
 				
 				<br>
-				NIT: 71.759.963-9
+				NIT: por definir
 
 				<br>
-				Dirección: Calle 44B 92-11
+				Dirección: Huehuetenango
 
 				<br>
-				Teléfono: 300 786 52 49
+				Teléfono: por definir
 
 				<br>
 				FACTURA N.$valorVenta
@@ -130,7 +130,7 @@ $bloque2 = <<<EOF
 	<tr>
 	
 		<td style="width:160px; text-align:right">
-		$ $valorUnitario Und * $item[cantidad]  = $ $precioTotal
+		Q $valorUnitario Und * $item[cantidad]  = Q $precioTotal
 		<br>
 		</td>
 
@@ -157,7 +157,7 @@ $bloque3 = <<<EOF
 		</td>
 
 		<td style="width:80px;">
-			$ $neto
+			Q $neto
 		</td>
 
 	</tr>
@@ -165,11 +165,11 @@ $bloque3 = <<<EOF
 	<tr>
 	
 		<td style="width:80px;">
-			 IMPUESTO: 
+			 ANTICIPO: 
 		</td>
 
 		<td style="width:80px;">
-			$ $impuesto
+			Q $anticipo
 		</td>
 
 	</tr>
@@ -189,7 +189,7 @@ $bloque3 = <<<EOF
 		</td>
 
 		<td style="width:80px;">
-			$ $total
+			Q $total
 		</td>
 
 	</tr>

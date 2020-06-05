@@ -28,7 +28,7 @@ $respuestaVenta = ControladorVentas::ctrMostrarVentas($itemVenta, $valorVenta);
 $fecha = substr($respuestaVenta["fecha"],0,-8);
 $productos = json_decode($respuestaVenta["productos"], true);
 $neto = number_format($respuestaVenta["neto"],2);
-$impuesto = number_format($respuestaVenta["impuesto"],2);
+$anticipo = number_format($respuestaVenta["anticipo"],2);
 $total = number_format($respuestaVenta["total"],2);
 
 //TRAEMOS LA INFORMACIÓN DEL CLIENTE
@@ -70,10 +70,10 @@ $bloque1 = <<<EOF
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">
 					
 					<br>
-					NIT: 71.759.963-9
+					NIT: por definir
 
 					<br>
-					Dirección: Calle 44B 92-11
+					Dirección: Huehuetenango
 
 				</div>
 
@@ -84,10 +84,10 @@ $bloque1 = <<<EOF
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">
 					
 					<br>
-					Teléfono: 300 786 52 49
+					Teléfono: por definir
 					
 					<br>
-					ventas@inventorysystem.com
+					optica2020@correo.com
 
 				</div>
 				
@@ -202,11 +202,11 @@ $bloque4 = <<<EOF
 				$item[cantidad]
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">Q 
 				$valorUnitario
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">Q 
 				$precioTotal
 			</td>
 
@@ -247,7 +247,7 @@ $bloque5 = <<<EOF
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $neto
+				Q $neto
 			</td>
 
 		</tr>
@@ -257,11 +257,11 @@ $bloque5 = <<<EOF
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
 			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
-				Impuesto:
+				Anticipo:
 			</td>
 		
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $impuesto
+				Q $anticipo
 			</td>
 
 		</tr>
@@ -275,7 +275,7 @@ $bloque5 = <<<EOF
 			</td>
 			
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $total
+				Q $total
 			</td>
 
 		</tr>
