@@ -989,13 +989,6 @@ class ControladorVentas{
 
 			$ventas = ModeloVentas::mdlMostrarVentas($tabla, $item, $valor);
 
-			//ANTICIPOS
-
-			$tabla = "ventas";
-			$item = "id_Estado";
-			$valor = $_GET["xml"];
-
-			$ventas = ModeloVentas::mdlMostrarAnticipos($tabla, $item, $valor);
 
 			// PRODUCTOS
 
